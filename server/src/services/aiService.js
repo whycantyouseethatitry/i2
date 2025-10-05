@@ -8,8 +8,11 @@ const gemini = process.env.GEMINI_API_KEY
 const userPreferredModel = process.env.GEMINI_MODEL?.trim();
 const MODEL_CANDIDATES = [
   userPreferredModel,
+  'gemini-1.5-flash-002',
   'gemini-1.5-flash',
   'gemini-1.5-flash-latest',
+  'gemini-1.5-flash-8b',
+  'gemini-1.5-pro-002',
   'gemini-1.5-pro',
   'gemini-1.0-pro',
   'gemini-pro',
@@ -87,7 +90,10 @@ async function generateWithFallback(prompt) {
     try {
       const model = gemini.getGenerativeModel({ model: modelName });
       const result = await model.generateContent(prompt);
-      return result.response.text();
+      const text = result.response.text();
+      // eslint-disable-next-line no-console
+      console.log(`[Gemini] Using model: ${modelName}`);
+      return text;
     } catch (err) {
       lastErr = err;
       const msg = String(err?.message || '');
