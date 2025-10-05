@@ -2,7 +2,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { z } from 'zod';
 
 const gemini = process.env.GEMINI_API_KEY
-  ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
+  ? new GoogleGenerativeAI(process.env.GEMINI_API_KEY, { apiVersion: process.env.GEMINI_API_VERSION || 'v1' })
   : null;
 
 const userPreferredModel = process.env.GEMINI_MODEL?.trim();
