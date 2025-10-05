@@ -1,0 +1,70 @@
+Provide a working demo (screen recording for mobile or hosted interactive link for web).
+Share source code (GitHub repo or ZIP).
+Include a README file with:
+Prompts used and refinements made.
+Architecture explanation and state management choices.
+Screenshots of key screens or screen recordings (for mobile).
+Known issues and potential improvements.
+
+
+Evaluation Criteria:
+AI prompt quality and consistency of output.
+UI/UX polish, smooth navigation, error/loading states.
+Code quality, modularity, and component reusability.
+Proper async handling (loading indicators, retries).
+Creativity and attention to detail.
+
+
+Problem Statement 2: AI-Assisted Knowledge Quiz
+
+
+Task: Generate quiz questions using AI and display an interactive, navigable quiz experience.
+
+
+Expected Flow:
+
+Screen 1: Topic selection screen (e.g. Wellness, Tech Trends).
+Screen 2: AI generates 5 MCQs with options and correct answer flag. Show loader while fetching.
+Screen 3: Display questions one by one with next/previous navigation and progress bar.
+Screen 4: On completion, AI generates a custom feedback message based on score.
+
+AI Usage Guidance:
+Prompts must produce consistent JSON output. Add error handling and retry if malformed. Build reusable question component.
+
+
+Sample README – AI-Assisted Knowledge Quiz: 
+
+1. Project Setup & Demo
+Web: Run `npm install && npm start` to launch locally. 
+Mobile: 
+- For iOS: open project in Xcode and run on simulator/device. 
+- For Android: run `./gradlew assembleDebug` or launch via Android Studio. 
+Demo: Provide a screen recording (for mobile) or hosted link (for web).
+
+
+2. Problem Understanding
+Summarize your understanding of the problem and mention assumptions made.
+
+
+3. AI Prompts & Iterations
+Document your initial prompts, issues faced, and refined prompts for better results.
+
+4. Architecture & Code Structure
+- `App.tsx` or mobile `NavigationHost` manages navigation. 
+- Separate components/screens for each step. 
+- `aiService.ts` / `AIClient.swift` / `AIRepository.kt` handles AI calls. 
+- Use React Context, SwiftUI ObservableObject, or Jetpack ViewModel for state management.
+
+5. Screenshots / Screen Recording
+Attach screenshots (web) or screen recording (mobile) covering all screens.
+
+6. Known Issues / Improvements
+List bugs or limitations and how you'd improve them with more time.
+
+
+7. Bonus Work
+Mention any extra polish or features added (animations, dark mode, etc.).
+
+tech stack to be used is MERN + Recoil for react and use gemini api for ai questions 
+
+FRONT END MUst be creative and awesome looking, make it impressive - finishing and everything
