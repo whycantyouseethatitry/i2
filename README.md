@@ -23,6 +23,23 @@ Then open http://localhost:5173.
 
 Hosted demo: <provide_link_here>
 
+Free Model Setup (No Paid APIs):
+
+```bash
+# Use Ollama locally (recommended)
+brew install ollama # or see https://ollama.com for your OS
+ollama serve &
+ollama pull llama3.1
+
+# Configure server
+cd server
+cp .env.example .env
+# Ensure OLLAMA_BASE_URL and OLLAMA_MODEL are set in .env
+npm run dev
+```
+
+Fallback to Gemini (optional): add `GEMINI_API_KEY` to `server/.env`. The server prefers Ollama first and falls back to Gemini when configured.
+
 ## 2) Problem Understanding
 
 - Generate 5 MCQs via AI for a selected topic.
@@ -78,6 +95,7 @@ Refinements made:
 - `server/src/index.js`: Express app, health route, Mongo connection, routers.
 - `server/src/routes/quiz.js`: Endpoints `POST /api/quiz/generate` and `POST /api/quiz/feedback`.
 - `server/src/services/aiService.js`: Gemini client, prompts, retries, Zod validation.
+ - `server/src/services/aiService.js`: Prefers free local Ollama; falls back to Gemini. Strict prompts, JSON-only, retries, and Zod validation.
 - `server/src/validation.js`: Zod schemas for strict data shape.
 - `server/src/storage/QuizSession.js`: Optional Mongo persistence model.
 
@@ -106,6 +124,7 @@ State Management (Recoil):
 - Persist sessions and analytics in Mongo (currently optional).
 - Add i18n and accessibility refinements (ARIA labels, focus states).
 - Rate-limit API and add request auth if hosting publicly.
+- Add streaming UI updates for model progress when using Ollama.
 
 ## 7) Bonus Work
 

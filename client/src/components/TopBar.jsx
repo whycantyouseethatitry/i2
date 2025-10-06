@@ -9,6 +9,8 @@ export default function TopBar() {
         </div>
       </div>
       <div className="hidden md:flex items-center gap-2 text-slate-400">
+        <a className="hover:text-white transition" href="https://ollama.com" target="_blank" rel="noreferrer">Ollama</a>
+        <span>•</span>
         <a className="hover:text-white transition" href="https://ai.google.dev" target="_blank" rel="noreferrer">Gemini</a>
         <span>•</span>
         <a className="hover:text-white transition" href="https://recoiljs.org/" target="_blank" rel="noreferrer">Recoil</a>

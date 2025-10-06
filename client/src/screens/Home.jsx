@@ -36,7 +36,7 @@ export default function Home() {
       <div className="grid md:grid-cols-2 gap-8 mt-6">
         <div className="card">
           <h1 className="font-display text-4xl md:text-5xl font-extrabold text-white">Master new topics with AI</h1>
-          <p className="mt-4 text-slate-300">Pick a topic and let Gemini craft a crisp 5-question quiz. Navigate smoothly, track progress, and get personalized feedback at the end.</p>
+          <p className="mt-4 text-slate-300">Pick a topic and let the AI craft a crisp 5-question quiz. Navigate smoothly, track progress, and get personalized feedback at the end.</p>
           <div className="mt-6 flex flex-wrap gap-3">
             {presetTopics.map((t) => (
               <button key={t} onClick={() => startQuiz(t)} className="btn-secondary">
@@ -57,7 +57,7 @@ export default function Home() {
             </div>
           </div>
           {ui.loading && (
-            <div className="mt-6 text-slate-300 animate-pulse">Generating questions with Gemini…</div>
+            <div className="mt-6 text-slate-300 animate-pulse">Generating questions…</div>
           )}
           {ui.error && (
             <div className="mt-4 text-red-400">{ui.error}</div>
